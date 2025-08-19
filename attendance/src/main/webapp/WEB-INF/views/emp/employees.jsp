@@ -18,7 +18,7 @@
             <td>${emp.name}</td>
             <td>${emp.gender}</td>
             <td>${emp.phone}</td>
-            <td>${emp.salary.baseSalary}</td>
+
             <td>${emp.phone}</td>
 
         </tr>
