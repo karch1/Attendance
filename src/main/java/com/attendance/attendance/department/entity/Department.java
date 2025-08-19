@@ -1,9 +1,8 @@
 package com.attendance.attendance.department.entity;
 
+import com.attendance.attendance.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
-// JPA 어노테이션
 @Entity
 @Table(name = "DEPARTMENT")
 @SequenceGenerator(
@@ -13,15 +12,17 @@ import lombok.*;
 )
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @EqualsAndHashCode(of = "deptId", callSuper = false)
-public class Department {
+public class Department extends BaseTimeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "SQ_DEPARTMENT_JPA")     // JPA시퀀스이름 넣기
-    private Long deptId;
-    private String deptName;
-    private String location;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE
+            , generator = "SQ_DEPARTMENT_JPA"
+    )
+    private Long deptId;       // 부서번호(기본키)
+    private String deptName;   // 부서이름
+    private String location;    // 부서위치
 }
+

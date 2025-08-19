@@ -1,4 +1,4 @@
-package com.attendance.attendance.dept.dto;
+package com.attendance.attendance.department.dto;
 
 import lombok.*;
 
