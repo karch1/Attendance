@@ -1,6 +1,6 @@
-package com.attendance.attendance.dept.repository;
+package com.attendance.attendance.department.repository;
 
-import com.attendance.attendance.dept.entity.Department;
+import com.attendance.attendance.department.entity.Department;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

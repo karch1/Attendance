@@ -1,4 +1,4 @@
-package com.attendance.attendance.dept.dto;
+package com.attendance.attendance.department.dto;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class DepartmentDto {
-    private Long dept_Id;       // 부서번호(기본키)
-    private String dept_Name;   // 부서이름
+    private Long deptId;       // 부서번호(기본키)
+    private String deptName;   // 부서이름
     private String location;    // 부서위치
 }

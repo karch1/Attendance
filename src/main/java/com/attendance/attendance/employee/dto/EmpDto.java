@@ -15,6 +15,16 @@ public class EmpDto {
     private String pw;
     private String role;
 
-//  참조키
+    //  참조키
     private Long deptId;
+
+
+    public EmpDto(String empId, String name, String gender, String phone, Long deptId) {
+        this.empId = empId;
+        this.name = name;
+        this.gender = gender;
+        this.phone = phone;
+        this.deptId = deptId;
+    }
+
 }

@@ -1,10 +1,10 @@
-package com.attendance.attendance.dept.service;
+package com.attendance.attendance.department.service;
 
 import com.attendance.attendance.common.ErrorMsg;
 import com.attendance.attendance.common.MapStruct;
-import com.attendance.attendance.dept.dto.DepartmentDto;
-import com.attendance.attendance.dept.entity.Department;
-import com.attendance.attendance.dept.repository.DepartmentRepository;
+import com.attendance.attendance.department.dto.DepartmentDto;
+import com.attendance.attendance.department.entity.Department;
+import com.attendance.attendance.department.repository.DepartmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

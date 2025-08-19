@@ -1,7 +1,7 @@
-package com.attendance.attendance.dept.controller;
+package com.attendance.attendance.department.controller;
 
-import com.attendance.attendance.dept.dto.DepartmentDto;
-import com.attendance.attendance.dept.service.DepartmentService;
+import com.attendance.attendance.department.dto.DepartmentDto;
+import com.attendance.attendance.department.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;

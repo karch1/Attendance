@@ -1,7 +1,7 @@
 package com.attendance.attendance.common;
 
-import com.attendance.attendance.dept.dto.DepartmentDto;
-import com.attendance.attendance.dept.entity.Department;
+import com.attendance.attendance.department.dto.DepartmentDto;
+import com.attendance.attendance.department.entity.Department;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

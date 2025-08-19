@@ -1,6 +1,6 @@
 package com.attendance.attendance.employee.entity;
 
-import com.attendance.attendance.dept.entity.Department;
+import com.attendance.attendance.department.entity.Department;
 import com.attendance.attendance.salary.entity.Salary;
 import jakarta.persistence.*;
 import lombok.*;

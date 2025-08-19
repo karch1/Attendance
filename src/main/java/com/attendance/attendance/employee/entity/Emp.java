@@ -1,7 +1,6 @@
 package com.attendance.attendance.employee.entity;
 
-import com.attendance.attendance.dept.entity.Department;
-import com.attendance.attendance.salary.entity.Salary;
+import com.attendance.attendance.department.entity.Department;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,9 +33,5 @@ public class Emp {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEPT_ID")  // DB 참조키 컬럼 이름넣기
     private Department dept;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SALARY_ID")  // DB 참조키 컬럼 이름넣기
-    private Salary salary;
 
 }
