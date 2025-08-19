@@ -12,6 +12,7 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- 	개발자 css -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 <jsp:include page="/common/header.jsp"/>
@@ -48,11 +49,10 @@
         </div>
     </div>
     <br><br><br>
+
     <canvas id="attendanceChart" width="400" height="200"></canvas>
 </div>
 <br><br><br>
-
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const ctx = document.getElementById('attendanceChart').getContext('2d');

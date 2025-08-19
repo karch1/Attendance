@@ -24,7 +24,7 @@ public class Emp {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "SQ_EMP_JPA")     // JPA시퀀스이름 넣기
-    private Long empId;    // 숫자형 PK로 변형, DB에 varchar2로 되어있지만 시퀀스때문에 오류날까봐 일단 정수로 표현
+    private String empId;    // 다시 수정
     private String name;
     private String gender;
     private String phone;
