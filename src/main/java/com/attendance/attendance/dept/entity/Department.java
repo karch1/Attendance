@@ -1,0 +1,28 @@
+package com.attendance.attendance.dept.entity;
+
+import com.attendance.attendance.common.BaseTimeEntity;
+import jakarta.persistence.*;
+import lombok.*;
+@Entity
+@Table(name = "DEPARTMENT")
+@SequenceGenerator(
+        name = "SQ_DEPARTMENT_JPA",
+        sequenceName = "SQ_DEPARTMENT",
+        allocationSize = 1
+)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode(of = "dept_Id", callSuper = false)
+public class Department extends BaseTimeEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE
+            , generator = "SQ_DEPARTMENT_JPA"
+    )
+    private Long dept_Id;       // 부서번호(기본키)
+    private String dept_Name;   // 부서이름
+    private String location;    // 부서위치
+}
+
