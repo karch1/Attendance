@@ -1,7 +1,7 @@
 package com.attendance.attendance.common;
 
-import com.attendance.attendance.department.dto.DeptDto;
-import com.attendance.attendance.department.entity.Department;
+import com.attendance.attendance.dept.dto.DepartmentDto;
+import com.attendance.attendance.dept.entity.Department;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -13,10 +13,10 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface MapStruct {
 
     // TODO: 1) Dept <-> DeptDto
-    DeptDto toDto(Department department);
-    Department toEntity(DeptDto deptDto);
+    DepartmentDto toDto(Department department);
+    Department toEntity(DepartmentDto departmentDto);
     // TODO: 수정 시 사용: dirty checking 기능(save() 없이 수정 가능)
-    void updateFromDto(DeptDto deptDto, @MappingTarget Department department);
+    void updateFromDto(DepartmentDto departmentDto, @MappingTarget Department department);
 
 //    // TODO: 2) Emp <-> EmpDto
 //    @Mapping(source = "dept.dno", target = "dno")
