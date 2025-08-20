@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class EmpDto {
-    private String empId;
+    private Long empId;
     private String name;
     private String gender;
     private String phone;
@@ -19,7 +19,7 @@ public class EmpDto {
     private Long deptId;
 
 
-    public EmpDto(String empId, String name, String gender, String phone, Long deptId) {
+    public EmpDto(Long empId, String name, String gender, String phone, Long deptId) {
         this.empId = empId;
         this.name = name;
         this.gender = gender;

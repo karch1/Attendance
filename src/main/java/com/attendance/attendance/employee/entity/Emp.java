@@ -23,7 +23,7 @@ public class Emp {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "SQ_EMP_JPA")     // JPA시퀀스이름 넣기
-    private String empId;    // 다시 수정
+    private Long empId;    // 다시 수정
     private String name;
     private String gender;
     private String phone;
