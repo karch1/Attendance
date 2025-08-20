@@ -17,4 +17,5 @@ public class SalaryDto {
     private Long netPay;
 
     private Long empId;
+    private String name;  // 사원이름 조회용
 }

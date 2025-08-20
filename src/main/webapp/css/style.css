@@ -1,9 +1,13 @@
 /* 공통 css: 수정하지 마시오 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
 
+/*원하시는거 색상은 그냥 사용하셔도됩니다.*/
 :root {
-    --black: black;
-    --gray: gray;
+    --color-primary: #2C3E50;   /* 진한 네이비 - 헤더/사이드바 */
+    --color-accent:  #3498DB;   /* 포인트 블루 - 버튼/하이라이트 */
+    --color-bg:      #ECF0F1;   /* 전체 배경 */
+    --color-text:    #2C3E50;   /* 기본 글자색 */
+    --color-white:   #FFFFFF;   /* 흰색 */
 }
 * {margin: 0;padding: 0;box-sizing: border-box;}
 body {font-family: "Montserrat","Noto Sans KR", sans-serif;line-height: 1.6;}

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department,Long> {
     @Query(value = "select d from Department d\n" +
-            "where d.dept_Name like %:searchKeyword%")
+            "where d.deptName like %:searchKeyword%")
     Page<Department> selectDeptList(
             @Param("searchKeyword") String searchKeyword,
             Pageable pageable

@@ -1,37 +1,60 @@
-HELP.md
-.gradle
+### Gradle ###
+.gradle/
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+
+# Gradle wrapper 파일은 추적 제외
+gradlew
+gradlew.bat
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# 모듈별 빌드 산출물 제외
+**/build/
 
 ### STS ###
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+**/bin/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+**/out/
 
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+ /dist/
+ /nbdist/
+ /.nb-gradle/
 
 ### VS Code ###
 .vscode/
+
+### Logs & Dumps ###
+*.log
+*.out
+*.tmp
+*.hprof
+
+### OS-specific ###
+.DS_Store
+Thumbs.db
+
+### Spring Boot sensitive configs ###
+# 환경별 설정은 Git에 올리지 않음 (비밀번호/DB정보 보호)
+application-*.yml
+application-*.yaml
+application-*.properties
+
+# 대신 예시 템플릿은 유지
+!application-example.yml

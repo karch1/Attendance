@@ -1,4 +1,4 @@
-package com.attendance.attendance.dept.entity;
+package com.attendance.attendance.department.entity;
 
 import com.attendance.attendance.common.BaseTimeEntity;
 import jakarta.persistence.*;
