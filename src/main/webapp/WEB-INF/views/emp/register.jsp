@@ -1,31 +1,36 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 25. 8. 19.
-  Time: 오후 7:21
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>직원 등록</title>
 </head>
 <body>
-<form action="/admin/register" method="post">
-    이름: <input type="text" name="name"/><br/>
-    성별:
-    <select name="gender">
+
+<h2>직원 등록</h2>
+
+<form action="${pageContext.request.contextPath}/admin/register" method="post">
+    이름:<br/>
+    <input type="text" name="name" required/><br/><br/>
+
+    성별:<br/>
+    <select name="gender" required>
         <option value="M">남</option>
         <option value="F">여</option>
-    </select><br/>
-    전화번호: <input type="text" name="phone"/><br/>
-    비밀번호: <input type="password" name="pw"/><br/>
-    권한:
-    <select name="role">
+    </select><br/><br/>
+
+    전화번호:<br/>
+    <input type="text" name="phone" required/><br/><br/>
+
+    비밀번호:<br/>
+    <input type="password" name="pw" required/><br/><br/>
+
+    권한:<br/>
+    <select name="role" required>
         <option value="ROLE_ADMIN">관리자</option>
         <option value="ROLE_USER">사원</option>
-    </select><br/>
+    </select><br/><br/>
+
     <button type="submit">등록</button>
 </form>
 
