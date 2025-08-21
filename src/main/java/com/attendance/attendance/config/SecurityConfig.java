@@ -42,15 +42,26 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/salary/mine").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/salary/list", "/salary/register/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // ← /admin 접근을 ADMIN으로 제한
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/", true)
+                        .successHandler((request, response, authentication) -> {
+                            // 로그인 성공 후 역할 기반 리다이렉트
+                            boolean isAdmin = authentication.getAuthorities().stream()
+                                    .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+                            if (isAdmin) {
+                                response.sendRedirect("/admin");
+                            } else {
+                                response.sendRedirect("/"); // 일반 사용자
+                            }
+                        })
                         .permitAll()
                 )
                 .logout(logout -> logout.permitAll());
 
         return http.build();
     }
+
 }

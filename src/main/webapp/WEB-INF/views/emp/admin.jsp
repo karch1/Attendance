@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -11,7 +13,7 @@
 <a href="<c:url value='/admin/register'/>">직원 등록</a>
 <a href="<c:url value='/salary/list'/>">급여 목록</a>
 
-<c:if test="${sessionScope.ROLE == 'ROLE_ADMIN'}">
+<sec:authorize access="hasRole('ADMIN')">
     <table border="1">
         <thead>
         <tr>
@@ -34,7 +36,7 @@
         </c:forEach>
         </tbody>
     </table>
-</c:if>
+</sec:authorize>
 
 </body>
 </html>

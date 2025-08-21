@@ -26,36 +26,22 @@ public class EmpController {
 
     //    관리자 권한 페이지
     @GetMapping("/admin")
-    public String adminPage(HttpSession session, Model model) {
-        String role = (String) session.getAttribute("ROLE");
-        if (role == null || !"ROLE_ADMIN".equals(role)) {
-            return "redirect:/";
-        }
-        // 직원 목록 조회
+    public String adminPage(Model model) {
         List<EmpDto> empList = empRepository.findAllEmpDto();
         model.addAttribute("empList", empList);
-
-        return "emp/admin"; // admin JSP 경로
-    }
+        return "emp/admin";
+        }
 
     //    회원가입페이지(관리자권한으로 생성하기때문에 관리자권한 없으면 홈으로 보냄)
     @GetMapping("/admin/register")
-    public String showRegisterForm(HttpSession session) {
-        String role = (String) session.getAttribute("ROLE");
-        if (!"ROLE_ADMIN".equals(role)) {
-            return "redirect:/";
-        }
-        return "emp/register"; // JSP 회원가입 폼
+    public String showRegisterForm() {
+        return "emp/register";
     }
 
     @PostMapping("/admin/register")
-    public String registerEmployee(EmpDto empDto, HttpSession session) {
-        String role = (String) session.getAttribute("ROLE");
-        if (!"ROLE_ADMIN".equals(role)) {
-            return "redirect:/";
-        }
-        empService.save(empDto); // EmpService에서 DB 저장 처리
-        return "redirect:/admin"; // 관리자 페이지로 이동
+    public String registerEmployee(EmpDto empDto) {
+        empService.save(empDto);
+        return "redirect:/admin";
     }
 
     @PostMapping("/login")
