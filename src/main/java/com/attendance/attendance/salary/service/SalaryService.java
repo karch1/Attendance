@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class SalaryService {
-<<<<<<< Updated upstream
-=======
+
     private final SalaryRepository salaryRepository;
 
     // 등록
@@ -23,5 +22,5 @@ public class SalaryService {
     public Salary getSalaryByEmpId(Long empId) {
         return salaryRepository.findByEmp_EmpId(empId);
     }
->>>>>>> Stashed changes
+
 }
