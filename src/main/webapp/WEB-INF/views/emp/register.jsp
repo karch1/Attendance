@@ -31,8 +31,18 @@
         <option value="ROLE_USER">사원</option>
     </select><br/><br/>
 
+    부서:<br/>
+    <select name="deptId" required>
+        <option value="10">인사팀</option>
+        <option value="20">개발팀</option>
+        <option value="30">영업팀</option>
+        <option value="40">재무팀</option>
+        <option value="50">마케팅팀</option>
+    </select><br/><br/>
+
     <button type="submit">등록</button>
 </form>
+
 
 </body>
 </html>
