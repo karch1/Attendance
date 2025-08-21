@@ -1,6 +1,7 @@
 plugins {
 	id 'java'
 	id 'war'
+	id 'application' // ← 이거 추가
 	id 'org.springframework.boot' version '3.4.8'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
@@ -54,6 +55,11 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-taglibs'
 
 }
+
+application {
+	mainClass = 'com.attendance.attendance.util.PasswordHashTest'
+}
+
 
 tasks.named('test') {
 	useJUnitPlatform()
