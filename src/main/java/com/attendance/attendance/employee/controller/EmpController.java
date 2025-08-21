@@ -7,6 +7,7 @@ import com.attendance.attendance.employee.service.EmpService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,26 +63,26 @@ public class EmpController {
                         @RequestParam String pw,
                         HttpSession session) {
 
-        Emp emp = empRepository.findById(empId)
-                .orElse(null);
+        Emp emp = empRepository.findById(empId).orElse(null);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        if (emp == null || !emp.getPw().equals(pw)) {
-            return "redirect:/login"; // 로그인 실패 시 다시 로그인 페이지
+        if (emp == null || !encoder.matches(pw, emp.getPw())) {
+            log.info("로그인 실패 empId={}", empId);
+            return "redirect:/login";
         }
 
-        // 로그인 성공: 세션에 EMP_ID, ROLE 저장
+        log.info("로그인 성공 empId={} role={}", empId, emp.getRole()); // <--- 추가
         session.setAttribute("EMP_ID", emp.getEmpId());
         session.setAttribute("ROLE", emp.getRole());
 
-        // 관리자면 관리자 페이지, 일반 사원은 홈으로
         if ("ROLE_ADMIN".equals(emp.getRole())) {
             return "redirect:/admin";
         } else {
-            return "redirect:/"; // 일반 사원 홈
+            return "redirect:/";
         }
     }
 
-    //123
+
 
     @GetMapping("/login")
     public String showLoginPage() {

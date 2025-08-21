@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,11 +25,27 @@ public class SalaryController {
     private final EmpRepository empRepository;
 
     //  급여 전체조회 (모든 사원 접근 가능)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")      //  ROLE_ADMIN 권한설정
     @GetMapping("/salary/list")
     public String listSalary(Model model) {
         model.addAttribute("salaryList", salaryService.getAllSalary());
         return "salary/list";
     }
+
+    // 개인 급여 조회
+    @GetMapping("/salary/mine")
+    public String mySalary(Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/login"; // 로그인 안 되어 있으면 로그인 페이지로
+        }
+
+        Long empId = Long.valueOf(principal.getName());
+        List<Salary> salaryList = salaryService.getSalaryByEmpId(empId);
+        model.addAttribute("salaryList", salaryList);
+
+        return "salary/list";
+    }
+
 
     //  급여 등록 폼 페이지 (관리자만 가능)
     @PreAuthorize("hasRole('ROLE_ADMIN')")      // ROLE_ADMIN 권한자만 가능

@@ -43,6 +43,7 @@
     <button type="submit">등록</button>
 </form>
 
+<a href="<c:url value='/admin'/>">관리자 홈으로 돌아가기</a>
 
 </body>
 </html>

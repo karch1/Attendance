@@ -5,9 +5,10 @@
 </head>
 <body>
 <form action="/login" method="post" accept-charset="UTF-8">
-    사번: <input type="text" name="empId" required/><br/>
-    비밀번호: <input type="password" name="pw" required/><br/>
+    사번: <input type="text" name="username" required/><br/>
+    비밀번호: <input type="password" name="password" required/><br/>
     <button type="submit">로그인</button>
 </form>
+
 </body>
 </html>
