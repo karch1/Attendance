@@ -25,6 +25,7 @@ public class SalaryController {
     private final EmpRepository empRepository;
 
     //  급여 전체조회 (모든 사원 접근 가능)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")      //  ROLE_ADMIN 권한설정
     @GetMapping("/salary/list")
     public String listSalary(Model model) {
         model.addAttribute("salaryList", salaryService.getAllSalary());
