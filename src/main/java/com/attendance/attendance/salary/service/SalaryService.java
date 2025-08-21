@@ -17,12 +17,13 @@ public class SalaryService {
         return salaryRepository.save(salary);
     }
 
-//    전체 조회
+    //    전체 조회
     public List<Salary> getAllSalary() {
         return salaryRepository.findAll();
     }
-//  사원별 조회
-    public Salary getSalaryByEmpId(Long empId) {
-        return salaryRepository.findByEmp_EmpId(empId);
+
+    //  사원별 조회
+    public List<Salary> getSalaryByEmpId(Long empId) {
+        return salaryRepository.findAllByEmp_EmpId(empId);
     }
 }
