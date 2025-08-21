@@ -8,6 +8,9 @@
 <body>
 <h2>관리자 페이지</h2>
 
+<a href="<c:url value='/admin/register'/>">직원 등록</a>
+<a href="<c:url value='/salary/list'/>">급여 목록</a>
+
 <c:if test="${sessionScope.ROLE == 'ROLE_ADMIN'}">
     <table border="1">
         <thead>
