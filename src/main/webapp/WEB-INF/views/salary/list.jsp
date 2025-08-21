@@ -6,7 +6,12 @@
     <title>급여 목록</title>
 </head>
 <body>
-<h2>급여 목록</h2>
+<h2>
+    급여 목록
+    <c:if test="${not empty principal}">
+        - ${principal.name}님의 급여
+    </c:if>
+</h2>
 
 <a href="<c:url value='/salary/register'/>">급여 등록</a>
 
