@@ -1,6 +1,7 @@
 package com.attendance.attendance.salary.controller;
 
 import com.attendance.attendance.employee.entity.Emp;
+import com.attendance.attendance.employee.repository.EmpRepository;
 import com.attendance.attendance.salary.dto.SalaryDto;
 import com.attendance.attendance.salary.entity.Salary;
 import com.attendance.attendance.salary.service.SalaryService;
@@ -12,12 +13,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Log4j2
 @Controller
 public class SalaryController {
 
     private final SalaryService salaryService;
+    private final EmpRepository empRepository;
 
     //  급여 전체조회 (모든 사원 접근 가능)
     @GetMapping("/salary/list")
@@ -31,6 +35,8 @@ public class SalaryController {
     @GetMapping("/salary/register")
     public String showRegisterFrom(Model model) {
 //        사원 목록 조회 후 select 박스 전달
+        List<Emp> empList = empRepository.findAll();
+        model.addAttribute("empList", empList);
         return "salary/register";
     }
 

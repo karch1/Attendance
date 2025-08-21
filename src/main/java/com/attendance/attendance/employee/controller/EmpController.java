@@ -41,7 +41,7 @@ public class EmpController {
     @GetMapping("/admin/register")
     public String showRegisterForm(HttpSession session) {
         String role = (String) session.getAttribute("ROLE");
-        if (!"admin".equals(role)) {
+        if (!"ROLE_ADMIN".equals(role)) {
             return "redirect:/";
         }
         return "emp/register"; // JSP 회원가입 폼
@@ -50,7 +50,7 @@ public class EmpController {
     @PostMapping("/admin/register")
     public String registerEmployee(EmpDto empDto, HttpSession session) {
         String role = (String) session.getAttribute("ROLE");
-        if (!"admin".equals(role)) {
+        if (!"ROLE_ADMIN".equals(role)) {
             return "redirect:/";
         }
         empService.save(empDto); // EmpService에서 DB 저장 처리
@@ -58,7 +58,7 @@ public class EmpController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String empId,
+    public String login(@RequestParam Long empId,
                         @RequestParam String pw,
                         HttpSession session) {
 
