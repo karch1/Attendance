@@ -83,10 +83,10 @@
                 <!-- 로그인 안 한 사람만 메뉴가 보이고, 아니면 안보임 -->
                 <sec:authorize access="isAnonymous()">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/auth/register"> 회원가입 </a>
+                        <a class="nav-link active" href="/admin/register"> 회원가입 </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/auth/login"> 로그인 </a>
+                        <a class="nav-link active" href="/login"> 로그인 </a>
                     </li>
                 </sec:authorize>
 

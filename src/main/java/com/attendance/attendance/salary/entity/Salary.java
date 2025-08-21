@@ -28,6 +28,8 @@ public class Salary {
     private Long baseSalary;
     private Long bonus;
     private Long withholding;
+
+    @Column(insertable = false, updatable = false) // DB에서 계산된 값 읽기 전용
     private Long netPay;
 
     @ManyToOne(fetch = FetchType.LAZY)

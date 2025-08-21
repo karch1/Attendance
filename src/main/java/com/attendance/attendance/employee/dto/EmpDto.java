@@ -8,13 +8,23 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class EmpDto {
-    private String empId;
+    private Long empId;
     private String name;
     private String gender;
     private String phone;
     private String pw;
     private String role;
 
-//  참조키
+    //  참조키
     private Long deptId;
+
+
+    public EmpDto(Long empId, String name, String gender, String phone, Long deptId) {
+        this.empId = empId;
+        this.name = name;
+        this.gender = gender;
+        this.phone = phone;
+        this.deptId = deptId;
+    }
+
 }
