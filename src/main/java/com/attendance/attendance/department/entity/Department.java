@@ -24,5 +24,6 @@ public class Department {
     private Long deptId;       // 부서번호(기본키)
     private String deptName;   // 부서이름
     private String location;    // 부서위치
+
 }
 

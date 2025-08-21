@@ -2,8 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
 
 :root {
+<<<<<<< Updated upstream
     --black: black;
     --gray: gray;
+=======
+    /* 텍스트 */
+    --text-black: #000000;       /* 기본 블랙, 강조 텍스트 */
+    --text-dark-gray: #333333;   /* 진한 회색, 주요 텍스트 */
+    --text-gray: #666666;        /* 일반 텍스트, 부가 정보 */
+    --text-light-gray: #999999;  /* 서브 텍스트, 설명글 */
+
+    /* 배경 */
+    --bg-white: #FFFFFF;         /* 기본 배경 */
+    --bg-gainsboro: #DDDDDD;     /* 밝은 배경, 카드/버튼 */
+    --bg-silver: #CCCCCC;        /* 테두리, 구분선 */
+
+    /* 보조 컬러 */
+    --border-gray: #CCCCCC;      /* 경계선 / 테두리 */
+    --hover-gray: #EEEEEE;       /* 호버 효과용 배경 */
+>>>>>>> Stashed changes
 }
 * {margin: 0;padding: 0;box-sizing: border-box;}
 body {font-family: "Montserrat","Noto Sans KR", sans-serif;line-height: 1.6;}

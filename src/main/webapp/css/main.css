@@ -1,13 +1,22 @@
 .page {
     padding: 2rem;
-    background-color: #f5f5f5;
+    background-color: var(--bg-gainsboro); /* #f5f5f5 대신 변수 사용 */
 }
 
 .attendance-summary, .salary-summary {
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--bg-white); /* #ffffff 대신 변수 사용 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 그림자 그대로 유지 */
 }
 
 .card {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 그림자 그대로 유지 */
+}
+
+/* 추가: 텍스트 컬러도 변수로 적용 가능 */
+.page h1, .page h2, .page h3 {
+    color: var(--text-dark-gray);
+}
+
+.page p {
+    color: var(--text-gray);
 }
