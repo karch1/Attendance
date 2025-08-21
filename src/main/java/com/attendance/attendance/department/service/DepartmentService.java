@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +23,30 @@ public class DepartmentService {
     public Page<DepartmentDto> selectDeptList(String searchKeyword, Pageable pageable) {
         Page<Department> page= departmentRepository.selectDeptList(searchKeyword, pageable);
         return page.map(department -> mapStruct.toDto(department));
+    }
+    public void save(DepartmentDto departmentDto) {
+//        JPA 저장 함수 실행 : return 값 : 저장된 객체
+        Department dept=mapStruct.toEntity(departmentDto);
+        departmentRepository.save(dept);
+    }
+    public DepartmentDto findById(long deptId) {
+//        JPA 상세조회 함수 실행
+        Department dept = departmentRepository.findById(deptId)
+                .orElseThrow(() -> new RuntimeException(errorMsg.getMessage("errors.not.found")));
+
+        return mapStruct.toDto(dept);
+    }
+    @Transactional
+    public void updateFromDto(DepartmentDto departmentDto) {
+//        JPA 저장 함수 실행 : return 값 : 저장된 객체
+        Department dept=departmentRepository.findById(departmentDto.getDeptId())
+                .orElseThrow(() -> new RuntimeException(errorMsg.getMessage("errors.not.found")));
+
+        mapStruct.updateFromDto(departmentDto, dept);
+//        deptRepository.save(dept);     // dirty checking 으로 인해 필요없음
+    }
+    //    삭제 함수
+    public void deleteById(long deptId) {
+        departmentRepository.deleteById(deptId);
     }
 }
