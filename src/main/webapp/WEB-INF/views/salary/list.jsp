@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>급여 목록</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/salary_list.css">
 </head>
 <body>
 <h2>
@@ -27,7 +28,17 @@
     </tr>
     </thead>
     <tbody>
+    <c:set var="currentMonth" value="" />
     <c:forEach var="salary" items="${salaryList}">
+        <c:set var="month" value="${salary.payDate.monthValue}" />
+        <c:if test="${month != currentMonth}">
+            <tr>
+                <td colspan="6" style="background-color:#f0f0f0;">
+                    <b>${salary.payDate.year}년 ${month}월</b>
+                </td>
+            </tr>
+            <c:set var="currentMonth" value="${month}" />
+        </c:if>
         <tr>
             <td>${salary.emp.name}</td>
             <td>${salary.payDate}</td>
@@ -38,7 +49,6 @@
         </tr>
     </c:forEach>
     </tbody>
-
 </table>
 
 <a href="<c:url value='/admin'/>">관리자 홈으로 돌아가기</a>

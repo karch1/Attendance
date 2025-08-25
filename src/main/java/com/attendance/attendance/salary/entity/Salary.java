@@ -7,7 +7,10 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "SALARY")
+@Table(
+        name = "SALARY",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"EMP_ID", "payDate"}) // 여기
+)
 @SequenceGenerator(
         name = "SQ_SALARY_JPA",
         sequenceName = "SQ_SALARY",
@@ -22,8 +25,9 @@ import java.time.LocalDate;
 public class Salary {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "SQ_SALARY_JPA")     // JPA시퀀스이름 넣기
+            generator = "SQ_SALARY_JPA")
     private Long salaryId;
+
     private LocalDate payDate;
     private Long baseSalary;
     private Long bonus;
@@ -35,5 +39,4 @@ public class Salary {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EMP_ID")
     private Emp emp;
-
 }

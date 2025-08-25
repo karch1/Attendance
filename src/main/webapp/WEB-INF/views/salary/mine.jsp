@@ -1,14 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <html>
 <head>
   <title>내 급여 내역</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/salary_mine.css">
+
+</head>
 </head>
 <body>
-<h2>${salaryList[0].emp.name} 님의 급여 내역</h2>
 
-<table border="1">
+<h2>
+  ${salaryList[0].emp.name} 님의 급여 내역
+</h2>
+
+<%-- 월별 조회 폼 추가 --%>
+<form method="get" action="">
+  <label>연도: <input type="number" name="year" value="${year}"/></label>
+  <label>월: <input type="number" name="month" value="${month}"/></label>
+  <button type="submit">조회</button>
+</form>
+
+
+<table>
   <thead>
   <tr>
     <th>지급일</th>
@@ -19,9 +34,22 @@
   </tr>
   </thead>
   <tbody>
+  <c:set var="currentMonth" value="" />
   <c:forEach var="salary" items="${salaryList}">
+    <%-- LocalDate를 문자열로 변환 (연-월) --%>
+    <c:set var="salaryMonth" value="${salary.payDate.year}-${salary.payDate.monthValue}" />
+
+    <%-- 월이 바뀌면 월 헤더 추가 --%>
+    <c:if test="${salaryMonth != currentMonth}">
+      <tr class="month-header">
+        <td colspan="5">${salaryMonth} 월</td>
+      </tr>
+      <c:set var="currentMonth" value="${salaryMonth}" />
+    </c:if>
+
     <tr>
-      <td><fmt:formatDate value="${salary.payDate}" pattern="yyyy-MM-dd"/></td>
+        <%-- LocalDate -> 문자열로 출력 --%>
+      <td>${salary.payDate.toString()}</td>
       <td><fmt:formatNumber value="${salary.baseSalary}" type="currency"/></td>
       <td><fmt:formatNumber value="${salary.bonus}" type="currency"/></td>
       <td><fmt:formatNumber value="${salary.withholding}" type="currency"/></td>
